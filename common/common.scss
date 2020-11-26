@@ -1,0 +1,83 @@
+// --------------------------------------------------
+// Variables
+// --------------------------------------------------
+
+$radius: 4px;
+
+
+// --------------------------------------------------
+// Buttons
+// --------------------------------------------------
+
+.btn {
+  background: $tertiary;
+  border-radius: $radius;
+  color: $secondary;
+
+  &[href] {
+    color: $secondary;
+  }
+
+  .d-icon { color: currentColor; }
+}
+
+
+// --------------------------------------------------
+// Header
+// --------------------------------------------------
+
+.d-header {
+  background-image: linear-gradient(#f5f5f5, #d1d1d1);
+}
+
+.d-header-icons {
+
+  .icon {
+    color: $header_primary;
+
+    &:focus,
+    &:hover {
+      background-color: transparent;
+
+      .d-icon {
+        color: $tertiary;
+      }
+    }
+  }
+
+  .d-icon {
+    color: inherit;
+  }
+}
+
+
+// --------------------------------------------------
+// Main
+// --------------------------------------------------
+
+#main-outlet {
+  padding-top: 0;
+}
+
+.wrap {
+  max-width: 1200px;
+}
+
+
+// --------------------------------------------------
+// Nav
+// --------------------------------------------------
+
+.nav-pills > li > a {
+  border-radius: $radius;
+
+  &.active,
+  &:focus,
+  &:hover {
+    color: $primary;
+  }
+
+  &.active {
+    font-size: $font-down-1;
+  }
+}

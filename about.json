@@ -1,0 +1,26 @@
+{
+  "name": "Fedora",
+  "component": false,
+  "license_url": null,
+  "about_url": null,
+  "authors": null,
+  "theme_version": null,
+  "minimum_discourse_version": null,
+  "maximum_discourse_version": null,
+  "assets": {
+    "banner-background": "assets/banner.svg"
+  },
+  "color_schemes": {
+    "Fedora": {
+      "primary": "000000",
+      "secondary": "ffffff",
+      "tertiary": "3c6eb4",
+      "quaternary": "dedede",
+      "header_background": "d1d1d1",
+      "header_primary": "555753"
+    }
+  },
+  "modifiers": {
+  },
+  "learn_more": "https://meta.discourse.org/t/beginners-guide-to-using-discourse-themes/91966"
+}
