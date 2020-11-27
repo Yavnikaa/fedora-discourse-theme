@@ -10,7 +10,10 @@
 }
 
 .banner-inner {
-  background: url($banner-background) bottom left no-repeat;
+  background-image: url($banner-background);
+  background-position: bottom left;
+  background-repeat: no-repeat;
+  background-size: cover;
   padding: 90px 25% 0;
   width: 100%;
 }
@@ -23,5 +26,11 @@
 }
 
 .banner-btn {
+  align-items: center;
+  display: inline-flex;
   font-size: $font-up-1;
+
+  .d-icon {
+    margin: 0 0 0 0.45em;
+  }
 }
