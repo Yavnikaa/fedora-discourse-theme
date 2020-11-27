@@ -17,7 +17,11 @@
       "tertiary": "3c6eb4",
       "quaternary": "dedede",
       "header_background": "d1d1d1",
-      "header_primary": "555753"
+      "header_primary": "555753",
+      "danger": "e59728",
+      "success": "79db32",
+      "love": "db3279",
+      "highlight": "a07cbc"
     }
   },
   "modifiers": {
