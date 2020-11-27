@@ -12,5 +12,4 @@ The font sizes need looking at.
 Find a way to make the banner full width instead of being inside the `wrap` container (possibly needs to use a handlebars template instead of HTML).
 If using a handlebars template for the banner, look in to using locale strings instead of hardcoding the message.
 Mobile/responsive styles, currently the banner is desktop only.
-Two column layout
 Add extra buttons/links to the header
