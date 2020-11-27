@@ -1,0 +1,49 @@
+<script type="text/discourse-plugin" version="0.8.20">
+  // Plugin outlet, followed by custom name for the component
+  api.registerConnectorClass("below-site-header", "homepage-banner", {
+    // Setup component
+    setupComponent(args, component) {
+
+      // Get the site setting 'top_menu',
+      // split the values into an array,
+      // and adding a leading slash
+      var topMenuRoutes = Discourse.SiteSettings.top_menu.split('|')
+        .map(function(route) { return '/' + route; });
+      
+      // The first page listed in the 'top_menu' setting is the homepage
+      var homeRoute = topMenuRoutes[0];
+  
+      // On page change
+      api.onPageChange(url => {
+        // Check if we're on the homepage 
+        if (url.split('?')[0] === "/" || url.split('?')[0] === homeRoute ){ 
+          // If it's the homepage add 'homepage' class to HTML tag
+          // and set 'displayHomepageBanner' to true
+          document.documentElement.classList.add("homepage"); 
+          component.set("displayHomepageBanner", true); 
+        } else {  
+          // If we're not on the homepage remove the class
+          // and set `displayHomepageBanner` to false
+          document.documentElement.classList.remove("homepage"); 
+          component.set("displayHomepageBanner", false); 
+        }
+      });
+    }
+  });
+</script>
+
+<script type="text/x-handlebars" data-template-name="/connectors/below-site-header/homepage-banner">
+  {{#if displayHomepageBanner}}
+    <div class="banner">
+      <div class="banner-inner">
+        <h1 class="banner-title">{{theme-i18n "banner.welcome"}}</h1>
+        <a class="btn btn-large btn-primary banner-btn" href="#">
+          {{theme-i18n "banner.start_here"}}
+          <svg class="d-icon svg-icon svg-string" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.468 4.785">
+            <path d="M2 11V9h12l-4-4 1-2 7 7-7 7-1-2 4-4z" fill="currentColor" stroke-width="13.109" transform="matrix(.34176 0 0 .34176 -.684 -1.025)" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  {{/if}}
+</script>
