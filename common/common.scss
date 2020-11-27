@@ -5,6 +5,11 @@
 $radius: 4px;
 $fedora-dark-blue: #294172;
 
+// Default discourse CSS variable overrides
+:root {
+  --font-family: 'Open Sans', sans-serif;
+  --heading-font-family: 'Montserrat', sans-serif;
+}
 
 // --------------------------------------------------
 // Global
@@ -33,6 +38,14 @@ $fedora-dark-blue: #294172;
   background-color: $fedora-dark-blue;
 }
 
+#create-topic {
+  background-color: $tertiary;
+  color: $secondary;
+
+  &:hover {
+    background-color: $fedora-dark-blue;
+  }
+}
 
 // --------------------------------------------------
 // Header
@@ -40,6 +53,22 @@ $fedora-dark-blue: #294172;
 
 .d-header {
   background-image: linear-gradient(#f5f5f5, #d1d1d1);
+  box-shadow: none;
+  height: 5em;
+
+  .header-buttons {
+    margin: 0 20px 0 0;
+  }
+}
+
+.header-links {
+  font-size: $font-up-2;
+  list-style: none;
+  margin: 0;
+
+  a {
+    color: #555753;
+  }
 }
 
 .d-header-icons {
@@ -70,18 +99,19 @@ $fedora-dark-blue: #294172;
 // Main
 // --------------------------------------------------
 
-#main-outlet {
+.homepage #main-outlet {
   padding-top: 0;
-}
-
-.wrap {
-  max-width: 1200px;
 }
 
 
 // --------------------------------------------------
 // Nav
 // --------------------------------------------------
+
+.list-controls .combo-box .combo-box-header {
+  border-color: $tertiary;
+  border-radius: $radius;
+}
 
 .nav-pills > li > a {
   border-radius: $radius;
