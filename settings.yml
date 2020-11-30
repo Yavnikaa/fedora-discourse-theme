@@ -3,4 +3,6 @@ header_links:
   list_type: simple
   default: "Code of Conduct,/"
   description:
-    en: "Comma delimited in this order: link text, URL<br><b>Link text:</b> The text for the link<br><b>URL:</b> The path for the link (can be relative)"
+    en: "Comma delimited in the following order: link text, URL<br><b>Link text:</b> The text for the link<br><b>URL:</b> The path for the link"
+
+banner_link: /
