@@ -62,12 +62,25 @@ $fedora-dark-blue: #294172;
 }
 
 .header-links {
-  font-size: $font-up-2;
+  font-size: $font-up-1;
   list-style: none;
   margin: 0;
 
+  &:not(:last-child) {
+    margin-right: 20px;
+  }
+
   a {
     color: #555753;
+  }
+}
+
+.login-button {
+  font-size: $font-up-1;
+  padding: 6px 10px;
+
+  .d-icon {
+    display: none;
   }
 }
 
