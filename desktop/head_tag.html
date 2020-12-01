@@ -1,28 +1,87 @@
-<script type="text/discourse-plugin" version="0.8.20">
-  // Plugin outlet, followed by custom name for the component
-  api.registerConnectorClass("below-site-header", "homepage-banner", {
-    // Setup component
+<script type="text/discourse-plugin" version="0.8">
+  const h = require('virtual-dom').h;
+  const cookie = require('discourse/lib/cookie').default;
+  const discourseURL = require('discourse/lib/url').default;
+  const { createWidget } = require('discourse/widgets/widget');
+  const { iconNode } = require('discourse-common/lib/icon-library');
+  const { removeCookie } = require('discourse/lib/cookie');
+
+  const setCookie = () => {
+    cookie('banner_closed', true, { expires: 365, path: '/', secure: true });
+  }
+
+  const removeBanner = () => {
+    document.documentElement.classList.remove('homepage');
+
+    const banner = document.querySelector('.js-banner');
+    if (banner) {
+      banner.parentNode.removeChild(banner);
+    }
+
+    setCookie();
+  };
+
+  createWidget('banner', {
+    tagName: 'div.banner.js-banner',
+
+    html(attrs) {
+      return h('div.banner-inner', [
+        h('h1.banner-title', I18n.t(themePrefix('banner.welcome'))),
+        this.attach('banner-link'),
+        this.attach('banner-dismiss'),
+      ]);
+    }
+  });
+
+  createWidget('banner-link', {
+    tagName: 'a.btn.btn-large.btn-primary.banner-btn',
+
+    click(ev) {
+      ev.preventDefault();
+      setCookie();
+
+      requestAnimationFrame(() => {
+        const destination = settings.banner_link;
+        discourseURL.routeTo(destination);
+      });
+    },
+
+    html(attrs) {
+      return I18n.t(themePrefix('banner.start_here'));
+    },
+  });
+
+  createWidget('banner-dismiss', {
+    tagName: 'button.banner-dismiss',
+  
+    html() {
+      return iconNode('times');
+    },
+  
+    click() {
+      removeBanner();
+    }
+  });
+
+  api.registerConnectorClass('below-site-header', 'homepage-banner', {
     setupComponent(args, component) {
 
-      // Get the site setting 'top_menu',
-      // split the values into an array,
-      // and adding a leading slash
-      var topMenuRoutes = Discourse.SiteSettings.top_menu.split('|')
-        .map(function(route) { return '/' + route; });
+      const toggleBanner = (show = true) => {
+        document.documentElement.classList.toggle('homepage', show);
+        component.set('displayBanner', show);
+      };
 
-      // On page change
+      const topMenuRoutes = Discourse.SiteSettings.top_menu.split('|')
+        .map(function(route) { return `/${route}`; });
+
       api.onPageChange(url => {
-        // Check if we're on the homepage
-        if (url.split('?')[0] === "/" || topMenuRoutes.includes(url.split('?')[0])){ 
-          // If it's the homepage add 'homepage' class to HTML tag
-          // and set 'displayHomepageBanner' to true
-          document.documentElement.classList.add("homepage"); 
-          component.set("displayHomepageBanner", true); 
-        } else {  
-          // If we're not on the homepage remove the class
-          // and set `displayHomepageBanner` to false
-          document.documentElement.classList.remove("homepage"); 
-          component.set("displayHomepageBanner", false); 
+        const closedCookie = cookie('banner_closed');
+        const isHome = url.split('?')[0] === '/' || topMenuRoutes.includes(url.split('?')[0]);
+
+        if (!closedCookie && isHome) {
+          toggleBanner();
+        } else {
+          toggleBanner(false);
         }
       });
     }
@@ -30,17 +89,7 @@
 </script>
 
 <script type="text/x-handlebars" data-template-name="/connectors/below-site-header/homepage-banner">
-  {{#if displayHomepageBanner}}
-    <div class="banner">
-      <div class="banner-inner">
-        <h1 class="banner-title">{{theme-i18n "banner.welcome"}}</h1>
-        <a class="btn btn-large btn-primary banner-btn" href="{{theme-setting 'banner_link'}}">
-          {{theme-i18n "banner.start_here"}}
-          <svg class="d-icon svg-icon svg-string" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.468 4.785">
-            <path d="M2 11V9h12l-4-4 1-2 7 7-7 7-1-2 4-4z" fill="currentColor" stroke-width="13.109" transform="matrix(.34176 0 0 .34176 -.684 -1.025)" />
-          </svg>
-        </a>
-      </div>
-    </div>
+  {{#if displayBanner}}
+    {{mount-widget widget="banner"}}
   {{/if}}
 </script>

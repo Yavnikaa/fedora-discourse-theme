@@ -5,4 +5,4 @@ header_links:
   description:
     en: "Comma delimited in the following order: link text, URL<br><b>Link text:</b> The text for the link<br><b>URL:</b> The path for the link"
 
-banner_link: /
+banner_link: /top

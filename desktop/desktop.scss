@@ -41,10 +41,35 @@
 
 .banner-btn {
   align-items: center;
+  background-image: url($banner-arrow);
+  background-position: 86% 50%;
+  background-repeat: no-repeat;
+  background-size: 18px 20px;
   display: inline-flex;
   font-size: $font-up-1;
+  padding-right: 46px;
 
-  .d-icon {
-    margin: 0 0 0 0.45em;
+  .discourse-no-touch & {
+    &:hover {
+      background-image: url($banner-arrow);
+      background-position: 86% 50%;
+      background-repeat: no-repeat;
+      background-size: 18px 20px;
+    }
+  }
+}
+
+.banner-dismiss {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  border: 0;
+  font-size: 1.5em;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+
+  &:focus {
+    color: $tertiary;
   }
 }

@@ -8,7 +8,8 @@
   "minimum_discourse_version": null,
   "maximum_discourse_version": null,
   "assets": {
-    "banner-background": "assets/banner.svg"
+    "banner-background": "assets/banner.svg",
+    "banner-arrow": "assets/arrow.svg"
   },
   "color_schemes": {
     "Fedora": {
