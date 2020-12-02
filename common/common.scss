@@ -18,6 +18,7 @@ $fedora-dark-blue: #294172;
 // Change focus outline to be Fedora blue
 *:focus { outline-color: $tertiary; }
 
+body { line-height: 1.5; }
 
 // --------------------------------------------------
 // Buttons
@@ -42,9 +43,7 @@ $fedora-dark-blue: #294172;
   background-color: $tertiary;
   color: $secondary;
 
-  &:hover {
-    background-color: $fedora-dark-blue;
-  }
+  &:hover { background-color: $fedora-dark-blue; }
 }
 
 // --------------------------------------------------
@@ -61,32 +60,29 @@ $fedora-dark-blue: #294172;
 
     @media (min-width: 768px) {
       display: flex;
-      margin: 0 20px 0 0;
+      font-family: var(--heading-font-family);
+      font-size: $font-up-2;
+      margin: 0 1.6em 0 0;
     }
   }
+
+  .d-header-icons { margin: 0; }
 }
 
 .header-links {
-  font-size: $font-up-1;
   list-style: none;
   margin: 0;
 
-  &:not(:last-child) {
-    margin-right: 20px;
-  }
+  &:not(:last-child) { margin-right: 1.9em; }
 
-  a {
-    color: #555753;
-  }
+  a { color: #555753; }
 }
 
-.login-button {
-  font-size: $font-up-1;
-  padding: 6px 10px;
+.d-header .login-button {
+  margin-left: 0;
+  padding: 9px 12px;
 
-  .d-icon {
-    display: none;
-  }
+  .d-icon { display: none; }
 }
 
 .d-header-icons {
@@ -97,20 +93,14 @@ $fedora-dark-blue: #294172;
     &:hover {
       background-color: transparent;
 
-      .d-icon {
-        color: $tertiary;
-      }
+      .d-icon { color: $tertiary; }
     }
   }
 
-  .d-icon {
-    color: inherit;
-  }
+  .d-icon { color: inherit; }
 }
 
-.drop-down-mode .d-header-icons .active .icon .d-icon {
-  color: $tertiary;
-}
+.drop-down-mode .d-header-icons .active .icon .d-icon { color: $tertiary; }
 
 
 // --------------------------------------------------
@@ -126,18 +116,12 @@ $fedora-dark-blue: #294172;
     content: '';
     padding-top: 45%;
 
-    @media (min-width: 480px) {
-      padding-top: 38%;
-    }
+    @media (min-width: 480px) { padding-top: 38%; }
 
-    @media (min-width: 620px) {
-      padding-top: 25%;
-    }
+    @media (min-width: 620px) { padding-top: 25%; }
   }
 
-  @media (min-width: 768px) {
-    margin-bottom: 20px;
-  }
+  @media (min-width: 768px) { margin-bottom: 20px; }
 }
 
 .banner-inner {
@@ -148,6 +132,7 @@ $fedora-dark-blue: #294172;
   background-size: contain;
   display: flex;
   flex-direction: column;
+  font-family: var(--heading-font-family);
   justify-content: flex-start;
   padding: 1.5em 0 0;
   width: 100%;
@@ -164,15 +149,13 @@ $fedora-dark-blue: #294172;
   font-size: 2.25em;
   font-weight: 400;
   line-height: 1;
-  margin-bottom: 1rem;
+  margin-bottom: 18px;
 
-  @media (min-width: 768px) {
-    font-size: 2.75em;
-  }
+  @media (min-width: 768px) { font-size: 2.75em; }
 
   @media (min-width: 1024px) {
-    font-size: 3.75em;
-    margin-bottom: 2rem;
+    font-size: 4.131em;
+    margin-bottom: 0.548em;
   }
 }
 
@@ -183,7 +166,7 @@ $fedora-dark-blue: #294172;
   background-repeat: no-repeat;
   background-size: 18px 20px;
   display: inline-flex;
-  font-size: $font-up-1;
+  font-size: $font-up-2;
   padding-right: 46px;
 
   .discourse-no-touch & {
@@ -201,14 +184,17 @@ $fedora-dark-blue: #294172;
   appearance: none;
   background-color: transparent;
   border: 0;
-  font-size: 1.5em;
+  font-size: $font-up-2;
   padding: 0;
   position: absolute;
   right: 0.5em;
   top: 0.5em;
 
-  &:focus {
-    color: $tertiary;
+  &:focus { color: $tertiary; }
+
+  @media (min-width: 768px) {
+    right: 1em;
+    top: 1em;
   }
 }
 
@@ -217,9 +203,7 @@ $fedora-dark-blue: #294172;
 // Main
 // --------------------------------------------------
 
-.homepage #main-outlet {
-  padding-top: 0;
-}
+.homepage #main-outlet { padding-top: 0; }
 
 
 // --------------------------------------------------
@@ -232,12 +216,12 @@ $fedora-dark-blue: #294172;
   border-radius: $radius;
 }
 
+.list-controls .combo-box .combo-box-header { font-size: $font-up-1; }
+
 .nav-pills > li > a {
   border-radius: $radius;
 
   &.active,
   &:focus,
-  &:hover {
-    color: $primary;
-  }
+  &:hover { color: $primary; }
 }
