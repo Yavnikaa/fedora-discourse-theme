@@ -1,4 +1,20 @@
 <script type="text/discourse-plugin" version="0.8">
+  api.reopenWidget('header-buttons', {
+    html(attrs) {
+      if (this.currentUser) { return; }
+      return this.attach(
+        'button',
+        {
+          contents: api.h('span.d-button-label', 'Login / Signup'),
+          className: 'btn-primary btn-small login-button',
+          action: 'showLogin',
+        }
+      );
+    }
+  });
+</script>
+
+<script type="text/discourse-plugin" version="0.8">
   const h = require('virtual-dom').h;
   const cookie = require('discourse/lib/cookie').default;
   const discourseURL = require('discourse/lib/url').default;
