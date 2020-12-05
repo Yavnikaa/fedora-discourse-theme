@@ -1,0 +1,12 @@
+<script type="text/discourse-plugin" version="0.8">
+  api.decorateWidget('header-buttons:before', helper =>
+    helper.h(
+      'a.header-link',
+      {
+        href: settings.code_of_conduct_link,
+        target: '_blank',
+      },
+      I18n.t(themePrefix('header.code_of_conduct'))
+    )
+  );
+</script>

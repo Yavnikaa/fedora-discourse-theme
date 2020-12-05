@@ -1,0 +1,8 @@
+<script type="text/discourse-plugin" version="0.8">
+  api.decorateWidget('hamburger-menu:footerLinks', () => {
+    return {
+      href: settings.code_of_conduct_link,
+      rawLabel: I18n.t(themePrefix('header.code_of_conduct')),
+    }
+  });
+</script>
