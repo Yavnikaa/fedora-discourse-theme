@@ -1,4 +1,8 @@
 en:
+  header:
+    login: Login
+    signup: Signup
+    code_of_conduct: Code of Conduct
   banner:
     welcome: Welcome!
     start_here: Start here

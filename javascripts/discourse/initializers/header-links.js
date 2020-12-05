@@ -7,30 +7,15 @@ export default {
 
   initialize() {
     withPluginApi('0.8.20', api => {
-      const links = settings.header_links;
-
-      if (!links.length) {
-        return;
-      }
-
-      const html = links
-        .split('|')
-        .map(link => {
-          const [
-            text,
-            href,
-          ] = link
-            .split(',')
-            .map(x => x.trim());
-
-          return h(
-            'li.headerLink',
-            h('a', { href }, text)
-          )
-        });
-
       api.decorateWidget('header-buttons:before', helper =>
-        helper.h('ul.header-links', html)
+        helper.h('ul.header-links', h(
+          'li.headerLink',
+          h(
+            'a',
+            { href: settings.code_of_conduct_link },
+            I18n.t(themePrefix('header.code_of_conduct'))
+          )
+        ))
       );
     });
   },

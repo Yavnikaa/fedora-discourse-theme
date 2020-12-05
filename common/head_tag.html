@@ -5,7 +5,7 @@
       return this.attach(
         'button',
         {
-          contents: 'Login / Signup',
+          contents: `${I18n.t(themePrefix('header.login'))} / ${I18n.t(themePrefix('header.signup'))}`,
           className: 'btn-primary login-button',
           action: 'showLogin',
         }
