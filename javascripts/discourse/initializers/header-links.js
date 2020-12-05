@@ -12,7 +12,10 @@ export default {
           'li.headerLink',
           h(
             'a',
-            { href: settings.code_of_conduct_link },
+            {
+              href: settings.code_of_conduct_link,
+              target: '_blank',
+             },
             I18n.t(themePrefix('header.code_of_conduct'))
           )
         ))
