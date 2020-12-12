@@ -315,6 +315,10 @@ tbody {
   line-height: 1.25;
 }
 
+.category-list-item h3, .category-list-item h4, .subcategory-list-item h3, .subcategory-list-item h4 {
+  padding-left: 0;
+}
+
 .list-cell,
 .table-heading,
 .topic-list th,
@@ -342,8 +346,12 @@ tbody {
 .topic-list .main-link,
 .latest-topic-list-item .main-link,
 .category-list .topics .value {
-  font-size: $heading-font-size;
+  font-size: 1rem;
   line-height: 1.25;
+
+  @media (min-width: 768px) {
+    font-size: $heading-font-size;
+  }
 }
 
 .topic-list .link-bottom-line,
