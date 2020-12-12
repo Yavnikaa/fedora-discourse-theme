@@ -1,0 +1,36 @@
+// --------------------------------------------------
+// Tables
+// --------------------------------------------------
+
+thead {
+  border-bottom: 0;
+
+  tr {
+    border-bottom: 0;
+  }
+}
+
+tbody {
+  border-top: 0;
+  position: relative;
+
+  &::before {
+    background-color: #f8f8f8;
+    content: '';
+    display: block;
+    height: 10px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+  }
+
+  tr:first-child {
+    border-top: 10px solid transparent;
+  }
+}
+
+// Extra width to align with category borders
+.category-list tbody::before {
+  left: -3px;
+  width: calc(100% + 3px);
+}
