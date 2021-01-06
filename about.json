@@ -8,7 +8,8 @@
   "minimum_discourse_version": null,
   "maximum_discourse_version": null,
   "assets": {
-    "banner-background": "assets/banner.svg",
+    "banner-desktop-background": "assets/banner-desktop.svg",
+    "banner-mobile-background": "assets/banner-mobile.svg",
     "banner-arrow": "assets/arrow.svg"
   },
   "color_schemes": {

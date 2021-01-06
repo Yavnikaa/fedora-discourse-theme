@@ -175,7 +175,7 @@ tbody {
 
 .banner-inner {
   align-items: center;
-  background-image: url($banner-background);
+  background-image: url($banner-mobile-background);
   background-position: bottom left;
   background-repeat: no-repeat;
   background-size: contain;
@@ -187,6 +187,7 @@ tbody {
 
   @media (min-width: 620px) {
     align-items: flex-start;
+    background-image: url($banner-desktop-background);
     background-size: cover;
     justify-content: center;
     padding: 0 25%;
